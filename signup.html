@@ -10,12 +10,13 @@
 <body>
     <div class="container">
         <h1>Sign Up</h1>
-        <form id="signupForm">
+        <form id="signupForm" onsubmit="return validateSignup()">
             <label for="username">Username:</label>
             <input type="text" id="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" required>
             <button type="submit">Sign Up</button>
+            <p id="signupError" class="error"></p>
         </form>
     </div>
 </body>
