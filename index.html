@@ -8,112 +8,11 @@
     <meta http-equiv="Expires" content="0">
     <title>Coaching with Youssef</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+        /* Same styles as before... */
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
+        .welcome-gesture {
+            font-size: 24px;
             text-align: center;
-        }
-
-        nav {
-            background-color: #555;
-            padding: 10px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            display: block;
-        }
-
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-            order: -1;
-        }
-
-        @media screen and (max-width: 768px) {
-            nav a {
-                display: none;
-            }
-
-            .menu-icon {
-                display: block;
-            }
-
-            .menu-icon:before {
-                content: '\2630'; /* Hamburger icon */
-                font-size: 30px;
-            }
-
-            nav a.active {
-                display: block;
-            }
-        }
-
-        section {
-            padding: 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .course {
-            border: 1px solid #ddd;
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            background-color: #4caf50;
-            color: white;
-            padding: 12px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
         }
     </style>
 </head>
@@ -126,59 +25,54 @@
     <nav>
         <div class="menu-icon" onclick="toggleMenu()"></div>
         <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#courses">Courses</a>
-        <a href="#contact">Contact</a>
+        <a href="#plans">Coaching Plans</a>
+        <a href="#payment">Payment</a>
         <a href="#signup">Sign Up</a>
     </nav>
 
     <section id="home">
         <h2>Welcome to Coaching with Youssef</h2>
+        <p class="welcome-gesture">👋</p>
         <p>Empowering you to achieve your goals and live a fulfilling life.</p>
+        <img src="image1.jpg" alt="Image 1">
+        <img src="image2.jpg" alt="Image 2">
+        <img src="image3.jpg" alt="Image 3">
+        <img src="image4.jpg" alt="Image 4">
     </section>
 
-    <section id="about">
-        <h2>About Youssef</h2>
-        <p>Learn more about Youssef and his approach to life coaching and self-development.</p>
-    </section>
-
-    <section id="services">
-        <h2>Our Services</h2>
-        <p>Explore the range of services offered to support your personal growth journey.</p>
-    </section>
-
-    <section id="courses">
-        <h2>Coaching Courses</h2>
+    <section id="plans">
+        <h2>Coaching Plans</h2>
 
         <div class="course">
             <h3>Basic Plan - $25</h3>
             <p>Get started with fundamental coaching principles to kickstart your personal growth journey.</p>
-            <button>Subscribe</button>
+            <button onclick="showPaymentOptions('Basic Plan')">Subscribe</button>
         </div>
 
         <div class="course">
             <h3>Standard Plan - $50</h3>
             <p>Unlock more in-depth coaching sessions and resources for a more comprehensive development experience.</p>
-            <button>Subscribe</button>
+            <button onclick="showPaymentOptions('Standard Plan')">Subscribe</button>
         </div>
 
         <div class="course">
             <h3>Premium Plan - $75</h3>
             <p>Access exclusive coaching content and personalized guidance to accelerate your growth.</p>
-            <button>Subscribe</button>
+            <button onclick="showPaymentOptions('Premium Plan')">Subscribe</button>
         </div>
 
         <div class="course">
             <h3>Ultimate Plan - $100</h3>
             <p>Experience the full spectrum of Youssef's coaching expertise with personalized one-on-one sessions.</p>
-            <button>Subscribe</button>
+            <button onclick="showPaymentOptions('Ultimate Plan')">Subscribe</button>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Reach out to us to start your coaching journey with Youssef.</p>
+    <section id="payment">
+        <h2>Payment</h2>
+        <p>Choose your payment method:</p>
+        <button onclick="showThankYou('Visa')">Pay with Visa</button>
+        <button onclick="showThankYou('PayPal')">Pay with PayPal</button>
     </section>
 
     <section id="signup">
@@ -209,11 +103,14 @@
             });
         }
 
-        document.querySelector('form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            alert('Thank you for signing up! We will be in touch.');
-            // Add code here for sending form data to the server if needed
-        });
+        function showPaymentOptions(plan) {
+            alert('You have selected ' + plan + '. Choose your payment method on the Payment page.');
+            window.location.href = "#payment";
+        }
+
+        function showThankYou(paymentMethod) {
+            alert('Thank you for your trust. Youssef is the most handsome guy ever. Payment method: ' + paymentMethod);
+        }
     </script>
 </body>
 </html>
