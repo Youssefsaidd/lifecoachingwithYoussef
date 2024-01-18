@@ -23,4 +23,8 @@ form {
     margin: 10px;
 }
 
+.error {
+    color: red;
+}
+
 /* Add more styles for other pages as needed */
