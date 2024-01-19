@@ -18,6 +18,47 @@
             <button type="submit">Sign Up</button>
             <p id="signupError" class="error"></p>
         </form>
+
+        <h1>Sign In</h1>
+        <form id="signinForm" onsubmit="return validateSignIn()">
+            <label for="signinUsername">Username:</label>
+            <input type="text" id="signinUsername" required>
+            <label for="signinPassword">Password:</label>
+            <input type="password" id="signinPassword" required>
+            <button type="submit">Sign In</button>
+            <p id="signinError" class="error"></p>
+        </form>
     </div>
+
+    <script>
+        function validateSignup() {
+            // Your sign-up validation logic here
+            // Save the sign-up information in local storage
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            localStorage.setItem("signupUsername", username);
+            localStorage.setItem("signupPassword", password);
+            return true;
+        }
+
+        function validateSignIn() {
+            // Your sign-in validation logic here
+            const signinUsername = document.getElementById("signinUsername").value;
+            const signinPassword = document.getElementById("signinPassword").value;
+            // Retrieve the sign-up information from local storage
+            const signupUsername = localStorage.getItem("signupUsername");
+            const signupPassword = localStorage.getItem("signupPassword");
+
+            // Compare the sign-in credentials with the stored sign-up information
+            if (signinUsername === signupUsername && signinPassword === signupPassword) {
+                alert("Sign-in successful!");
+                return true;
+            } else {
+                document.getElementById("signinError").innerText = "Invalid credentials.";
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
+
